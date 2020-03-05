@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/company','CompanyController@index')->name('company');
+Route::get('company/create_company','CompanyController@create');
+
+
+Route::get('/employe','EmployeController@index')->name('employe');
+Route::get('/employe/create_employe','EmployeController@create');
