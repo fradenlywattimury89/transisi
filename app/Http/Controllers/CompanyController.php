@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Company;
 
 class CompanyController extends Controller
 {
@@ -13,7 +14,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view('admin.company.index');
+        $company = Company::all();
+
+        return view('admin.company.index',['company' => $company]);
     }
 
     /**
@@ -34,7 +37,19 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $path = $request->file('logo')->store('company');
+        // dd($path);
+
+        Company::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'logo' => $path,
+            'website' => $request->website
+        ]);
+
+        return redirect('company');
+
     }
 
     /**

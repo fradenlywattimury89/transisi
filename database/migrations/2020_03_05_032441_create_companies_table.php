@@ -17,7 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->bigIncrements('id_company');
             $table->string('nama');
             $table->string('email');
-            $table->binary('logo');
+            $table->string('logo');
             $table->string('website');
             $table->timestamps();
         });

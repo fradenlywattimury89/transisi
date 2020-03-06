@@ -34,6 +34,22 @@
         </tr>
     </thead>
     <tbody>
+        @foreach($company as $c)
+        <tr>
+            <td scope="row">{{ $loop->iteration }}</td>
+            <td>{{ $c->nama }}</td>
+            <td>{{ $c->email }}</td>
+            <td>{{ $c->logo }}</td>
+            <td>{{ $c->website }}</td>
+            <td>
+                <form action="">
+                    <a href="" class="btn btn-primary">Edit</a>
+                    <button href="" class="btn btn-danger" type="submit">Delete</button>
+                </form>
+
+            </td>
+        </tr>
+        @endforeach
     </tbody>
     </table>
 
