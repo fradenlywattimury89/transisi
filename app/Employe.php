@@ -8,10 +8,14 @@ class employe extends Model
 {
     protected $table = 'employes';
 
-    protected $fillable = ['id_company','email','logo'];
+    protected $primaryKey = 'id_employe';
+
+    protected $fillable = ['nama','email','id_company'];
 
     public function company()
     {
-        return $this->hasOne('App\Company');
+        return $this->hasOne(Company::class,'id_company', 'id_company');
     }
 }
+
+

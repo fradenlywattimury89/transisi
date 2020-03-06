@@ -42,9 +42,11 @@
             <td>{{ $c->logo }}</td>
             <td>{{ $c->website }}</td>
             <td>
-                <form action="">
+                <form action="/company/{{ $c->id_company }}">
                     <a href="" class="btn btn-primary">Edit</a>
-                    <button href="" class="btn btn-danger" type="submit">Delete</button>
+                    @csrf
+                    @method('DELETE')
+                    <button href="/company/{{ $c->id_company }}" class="btn btn-danger" type="submit">Delete</button>
                 </form>
 
             </td>

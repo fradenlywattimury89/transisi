@@ -18,6 +18,7 @@ class CreateEmployesTable extends Migration
             $table->string('nama');
             $table->unsignedBigInteger('id_company');
             $table->foreign('id_company')->references('id_company')->on('companies')->onDelete('cascade');
+            $table->string('email');
             $table->timestamps();
         });
     }

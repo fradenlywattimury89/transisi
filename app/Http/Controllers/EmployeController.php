@@ -15,7 +15,17 @@ class EmployeController extends Controller
      */
     public function index()
     {
-        return view('admin.employe.index');
+        $employe = Employe::paginate(5);
+
+        // $data = [
+        //     'nama' => $employe->nama,
+        //     'email' => $employe->email,
+        //     'company' => $employe->company->nama
+        // ];
+
+        // dd($employe);
+
+        return view('admin.employe.index',['employe' => $employe]);
     }
 
     /**
@@ -38,7 +48,15 @@ class EmployeController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
+
+        Employe::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'id_company' => $request->company,
+        ]);
+
+        return redirect('employe');
     }
 
     /**
@@ -83,6 +101,10 @@ class EmployeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id = Employe::find($id);
+        
+        $id->delete();
+
+        return redirect('employe');
     }
 }

@@ -5,7 +5,7 @@
 <div class="div container">
 <section class="content">
         <div class="container-fluid">
-            <form method="post" action="">
+            <form method="post" action="/create_employe/upload">
                 @csrf
                 <div class="form-group">
                     <label for="nama">Nama</label>
@@ -19,7 +19,7 @@
                     <label for="company"> Company </label> <br>
                         <select class="custom-select" name="company" id="company">
                             @foreach($company as $c)
-                                <option value='{{ $c-> nama }}'>{{ $c-> nama }}</option>
+                                <option value='{{ $c-> id_company }}'>{{ $c-> nama }}</option>
                             @endforeach
                         </select>
                 </div>

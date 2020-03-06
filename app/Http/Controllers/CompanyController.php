@@ -14,7 +14,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $company = Company::all();
+        $company = Company::paginate(5);
+
 
         return view('admin.company.index',['company' => $company]);
     }
@@ -94,6 +95,10 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id = Company::find($id);
+        
+        $id->delete();
+
+        return redirect('company');
     }
 }
