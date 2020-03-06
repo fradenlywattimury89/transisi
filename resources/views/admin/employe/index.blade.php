@@ -45,7 +45,7 @@
             <td>{{ $e->company->nama }}</td>
             <td>
                 <form action="/employe/{{ $e->id_employe }}">
-                    <a href="" class="btn btn-primary">Edit</a>
+                    <a href="/employe/{{ $e->id_employe }}/edit" class="btn btn-primary">Edit</a>
                     @csrf
                     @method('DELETE')
                     <button href="/employe/{{ $e->id_employe }}" class="btn btn-danger" type="submit">Delete</button>

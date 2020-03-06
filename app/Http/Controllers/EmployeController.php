@@ -78,7 +78,12 @@ class EmployeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employe = Employe::find($id);
+        $company = Company::all();
+
+        // dd($employe);
+        
+        return view('admin.employe.edit', compact('employe'),['company' => $company]);
     }
 
     /**
@@ -102,7 +107,7 @@ class EmployeController extends Controller
     public function destroy($id)
     {
         $id = Employe::find($id);
-        
+
         $id->delete();
 
         return redirect('employe');

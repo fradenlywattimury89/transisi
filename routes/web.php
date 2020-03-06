@@ -29,3 +29,4 @@ Route::get('/employe','EmployeController@index')->name('employe');
 Route::get('/employe/create_employe','EmployeController@create');
 Route::post('/create_employe/upload','EmployeController@store');
 Route::get('/employe/{id}', 'EmployeController@destroy');
+Route::get('/employe/{id}/edit', 'EmployeController@edit');
