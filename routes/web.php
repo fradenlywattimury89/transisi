@@ -23,13 +23,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/company','CompanyController@index')->name('company');
 Route::get('company/create_company','CompanyController@create');
 Route::post('/create_company/upload','CompanyController@store');
-Route::get('/company/{id}', 'CompanyController@destroy');
 Route::get('/company/{id}/edit', 'CompanyController@edit');
+Route::get('/company/{id}', 'CompanyController@destroy');
 
 // Employe Admin
 Route::get('/employe','EmployeController@index')->name('employe');
 Route::post('/create_employe/upload','EmployeController@store');
 Route::get('/employe/create_employe','EmployeController@create');
 Route::get('/employe/{id}', 'EmployeController@destroy');
-Route::get('/employe/{id}/edit', 'EmployeController@edit');
-Route::patch('/employe/{id}', 'EmployeController@update');
+Route::get('/employe/{id_employe}/edit', 'EmployeController@edit');
+Route::patch('/employe/{id_employe}', 'EmployeController@update');

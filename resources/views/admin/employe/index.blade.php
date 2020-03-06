@@ -28,7 +28,6 @@
     <thead>
         <tr>
         <th scope="col">No</th>
-        <th scope="col">ID</th>
         <th scope="col">Nama</th>
         <th scope="col">Email</th>
         <th scope="col">Company</th>
@@ -39,7 +38,6 @@
     @foreach($employe as $e)
         <tr>
             <td scope="row">{{ $loop->iteration }}</td>
-            <td>{{ $e->id_employe }}</td>
             <td>{{ $e->nama }}</td>
             <td>{{ $e->email }}</td>
             <td>{{ $e->company->nama }}</td>
@@ -50,7 +48,6 @@
                     @method('DELETE')
                     <button href="/employe/{{ $e->id_employe }}" class="btn btn-danger" type="submit">Delete</button>
                 </form>
-
             </td>
         </tr>
         @endforeach
