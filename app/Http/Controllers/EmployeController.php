@@ -49,6 +49,11 @@ class EmployeController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'email' => 'required',
+            'id_company' => 'required'
+        ]);
 
         Employe::create([
             'nama' => $request->nama,
@@ -79,6 +84,7 @@ class EmployeController extends Controller
     public function edit($id)
     {
         $employe = Employe::find($id);
+        
         $company = Company::all();
 
         // dd($employe);
@@ -95,7 +101,14 @@ class EmployeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Employe::where('id', $id)->update([
+            'name' => $request->nama,
+            'email' => $request->email
+            // 'email' => $request->id_company,
+            // 'jurusan' => $request->jurusan
+        ]);
+
+        return redirect('employe');
     }
 
     /**

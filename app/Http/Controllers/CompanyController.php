@@ -38,6 +38,13 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'email' => 'required',
+            'logo' => 'required',
+            'website' => 'required'
+        ]);
+
         // dd($request->all());
         $path = $request->file('logo')->store('company');
         // dd($path);
@@ -72,7 +79,10 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $company = Company::find($id);
+
+        return view('admin.company.edit', ['company' => $company]);
+
     }
 
     /**

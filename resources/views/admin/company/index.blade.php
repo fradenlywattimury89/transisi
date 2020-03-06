@@ -25,12 +25,12 @@
     <table class="table">
     <thead>
         <tr>
-        <th scope="col">No</th>
-        <th scope="col">Nama</th>
-        <th scope="col">Email</th>
-        <th scope="col">Logo</th>
-        <th scope="col">Website</th>
-        <th scope="col">Action</th>
+            <th scope="col">No</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Email</th>
+            <th scope="col">Logo</th>
+            <th scope="col">Website</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -43,7 +43,7 @@
             <td>{{ $c->website }}</td>
             <td>
                 <form action="/company/{{ $c->id_company }}">
-                    <a href="" class="btn btn-primary">Edit</a>
+                    <a href="/company/{{ $c->id_company }}/edit" class="btn btn-primary">Edit</a>
                     @csrf
                     @method('DELETE')
                     <button href="/company/{{ $c->id_company }}" class="btn btn-danger" type="submit">Delete</button>
