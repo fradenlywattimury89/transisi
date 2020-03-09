@@ -39,7 +39,10 @@
             <td scope="row">{{ $loop->iteration }}</td>
             <td>{{ $c->nama }}</td>
             <td>{{ $c->email }}</td>
-            <td>{{ $c->logo }}</td>
+            
+            
+            <td><img src="{{ asset(Storage::url( $c->logo )) }}" width="100px" hegth="100px" alt="image"></td>
+
             <td>{{ $c->website }}</td>
             <td>
                 <form action="/company/{{ $c->id_company }}">

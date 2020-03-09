@@ -23,8 +23,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/company','CompanyController@index')->name('company');
 Route::get('company/create_company','CompanyController@create');
 Route::post('/create_company/upload','CompanyController@store');
+Route::get('/company/{id}/show', 'CompanyController@show');
 Route::get('/company/{id}/edit', 'CompanyController@edit');
 Route::get('/company/{id}', 'CompanyController@destroy');
+
+
 
 // Employe Admin
 Route::get('/employe','EmployeController@index')->name('employe');

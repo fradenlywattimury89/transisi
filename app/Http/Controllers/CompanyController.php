@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Company;
 
 class CompanyController extends Controller
@@ -16,8 +17,16 @@ class CompanyController extends Controller
     {
         $company = Company::paginate(5);
 
+        // $company = Company::find(5);
 
+        // $path = Storage::url('app/'.$company->logo);
+        
+        // dd($path);
+
+        // return ' <img src="' .$path. '" alt=""> ';
+        
         return view('admin.company.index',['company' => $company]);
+
     }
 
     /**
@@ -68,7 +77,7 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        //
+        dd($id);
     }
 
     /**
