@@ -87,11 +87,13 @@ class EmployeController extends Controller
         
         $company = Company::all();
 
-        // dd($employe);
+        //  dd($employe->id_employe);
         
         // return view('admin.employe.edit', ['employe' => $employe]);
 
-        return view('admin.employe.edit', compact('employe'),['company' => $company]);
+        // return view('admin.employe.edit', compact('employe'),['company' => $company]);
+
+        return view('admin.employe.edit', ['employe' => $employe],['company' => $company]);
     }
 
     /**
@@ -106,11 +108,11 @@ class EmployeController extends Controller
        
         $data = Employe::where('id_employe', $id)->update([
             'nama' => $request->nama,
-            'email' => $request->email
-            // 'id_company' => $request->id_company
+            'email' => $request->email,
+            'id_company' => $request->company
         ]);
 
-        // dd($request->id);
+        // dd($data);
 
         return redirect('employe');
     }

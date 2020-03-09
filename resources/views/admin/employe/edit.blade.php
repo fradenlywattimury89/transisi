@@ -5,7 +5,7 @@
 <div class="div container">
 <section class="content">
         <div class="container-fluid">
-            <form method="post" action="/employe/{ $employe->id_employe }">
+            <form method="post" action="/employe/{{ $employe->id_employe }}">
             @method('PATCH')
             @csrf
             <div class="form-group">
@@ -20,7 +20,7 @@
             
             <div class="form-group">
                 <label for="company"> Company </label> <br>
-                    <select class="custom-select" name="company" id="company">
+                    <select class="custom-select" name="company" id="company" value="{{ $employe->company->id_company }}">
                         @foreach($company as $c)
                             <option value='{{ $c->id_company }}'>{{ $c->nama }} </option>
                         @endforeach
